@@ -266,7 +266,7 @@ def train(args):
         lambda_dep = args["lambda_dep"]
 
         epoch_size = max([len(train_batch_pos), len(train_batch_dep), len(train_batch_ner)])
-        for i in tqdm(range(epoch_size)):
+        for i in range(epoch_size):
             step += 1
             global_step += 1
             batch_pos = train_batch_pos[i]
