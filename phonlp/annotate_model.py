@@ -217,7 +217,10 @@ class JointModel(BertPreTrainedModel):
 
     def annotate(self, text=None, input_file=None, output_file=None, batch_size=1, output_type=""):
         if text is not None:
-            data = [text.split(" ")]
+            if isinstance(text, str):
+                data = [text.split(" ")]
+            else:
+                data = list(map(lambda s: s.split(" "), text))
         else:
             f = open(input_file)
             data = []
